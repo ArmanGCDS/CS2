@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Dimensions</title>
+</head>
+<style>
+body {background-color: rgb(0, 0, 0);}
+h1 {
+  color: rgb(255, 249, 249);
+  font-family: verdana;
+  font-size: 300%;
+  border: 2px solid rgb(255, 145, 0);
+  padding: 30px; 
+}
+p {
+  color: rgb(255, 255, 255);
+  font-family: Trebuchet MS;
+  font-size: 160%;
+  border: 2px solid rgb(255, 149, 0);
+  padding: 30px;
+}
+#boxForm {
+                display: flex;
+                flex-direction: column; 
+                gap: 10px; 
+                width: 300px; 
+                max-width: 90%; 
+                margin: 0 auto; 
+                padding: 20px;
+                border: 1px solid #ccc;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+h2 {
+  color: rgb(255, 157, 0);
+  font-family: verdana;
+  font-size: 250%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffc400;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%; 
+}
+
+</style>
+</head>
+<body>
+
+<h1 style="text-align:center;">GCDS Post Office</h1>
+
+<p>The GCDS Post Office is going online. Postage class is determined by the size of a piece of
+mail. The cost to mail the piece is determined by its class and the number of postal zones the
+piece must travel through. The length of a piece of mail is always the side parallel to the written
+address
+<br><br>
+REGULAR POST CARD: The length must be between 3.5 and 4.25 inches, inclusive. The
+height must be between 3.5 and 6 inches, inclusive. The thickness must be between .007
+and .016 inches, inclusive
+<br><br>
+LARGE POST CARD: The length must be between 4.25 and 6 inches. The height must be
+between 6 and 11.5 inches. The thickness must be between .007 and .015 inches, inclusive
+ENVELOPE: The length must be between 3.5 and 6.125 inches, inclusive. The height must be
+between 5 and 11.5 inches, inclusive. The thickness must be between .016 and .25 inches.
+<br><br>
+LARGE ENVELOPE: The length must be between 6.125 inches and 24 inches. The height must
+be between 11 and 18 inches, inclusive. The thickness must be between .25 and .5 inches,
+inclusive.
+<br><br>
+PACKAGE: Use package class when the item exceeds any of the rules for large envelope and
+when the length plus the distance around the other sides of a package equals 84 inches or less.
+<br><br>
+LARGE PACKAGE: Use large package class when the length plus the distance around the other
+sides of a package is more than 84 inches but is not more than 130 inches.
+<br><br>
+UNMAILABLE: Any item that does not conform to any of the above requirements.
+</p><br>
+
+<div class="container">
+    <div class="image-side">
+        <img src ="https://i2.wp.com/www.gmsllp.com/wp-content/uploads/2022/01/Updated-New-Feature-Image.png?fit=1200%2C749&ssl=1" class="center-image">
+        <br><br>
+        <h2 style="text-align:center;">Enter Mailing Information</h2>
+    </div>
+    <div class="form-side">
+        <form id="boxForm" style="font-family: Trebuchet MS; color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+            <label for="height">Height:</label>
+            <input type="number" id="height" name="height" step="0.01"><br><br>
+        
+            <label for="length">Length:</label>
+            <input type="number" id="length" name="length" step="0.01"><br><br>
+        
+            <label for="thickness">Thickness:</label>
+            <input type="number" id="thickness" name="thickness" step="0.01"><br><br>
+        
+            <label for="zipFrom">Zip From:</label>
+            <input type="number" id="zipFrom" name="zipFrom" step="1"><br><br>
+        
+            <label for="zipTo">Zip To:</label>
+            <input type="number" id="zipTo" name="zipTo" step="1"><br><br>
+        
+            <button type="button" onclick="main()">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+    <h2 style="color: #ffb700; font-family: Verdana">Zones</h2>
+
+<table>
+  <tr>
+    <th>Zone</th>
+    <th>From</th>
+    <th>To</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>00001</td>
+    <td>06999</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>07000</td>
+    <td>19999</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>20000</td>
+    <td>35999</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>36000</td>
+    <td>62999</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>63000</td>
+    <td>84999</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>85000</td>
+    <td>99999</td>
+  </tr>
+</table>
+
+    <h2 style="color: #ffb700; font-family: Verdana">Pricing </h2>
+
+<table>
+
+
+  <tr>
+    <th>Post Class</th>
+    <th>Cost</th>
+  </tr>
+    <td>Post Card</td>
+    <td>$.20 + .03 per zone</td>
+  </tr>
+  <tr>
+    <td>Large Post Card</td>
+    <td>$.37 + .03 per zone</td>
+  </tr>
+  <tr>
+    <td>Envelope</td>
+    <td>$.37 + .04 per zone</td>
+  </tr>
+  <tr>
+    <td>Large Envelope</td>
+    <td>$.60 + .05 per zone</td>
+  </tr>
+  <tr>
+    <td>Package</td>
+    <td>$2.95 + .25 per zone</td>
+  </tr>
+  <tr>
+    <td>Large Package</td>
+    <td>$3.95 + .35 per zone</td>
+  </tr>
+</table>
+
+    <script>
+        /**
+         * Main function to read in the data from the form
+         */
+        function main() {
+            // Read in the data from the form
+            const height = parseFloat(document.getElementById('height').value);
+            const length = parseFloat(document.getElementById('length').value);
+            const thickness = parseFloat(document.getElementById('thickness').value);
+            const zipFrom = parseInt(document.getElementById('zipFrom').value);
+            const zipTo = parseInt(document.getElementById('zipTo').value);
+
+            let post; //create variables for post and zones
+            let zoneCount;
+            let type = getType(height, length, thickness); //get the post type
+            let distance = checkDistance(zipFrom, zipTo);
+            let finalCost = checkCost(type, distance); //get the final cost
+            if (typeof finalCost === 'number') {                       //If a number is returned then display the number formatted 
+                alert(`The final cost is: $${finalCost.toFixed(2)}`);
+            } else {   //else display unmailable 
+                alert(finalCost);
+            }
+        }
+
+        /**
+         * Function to get post type
+         * @param {number} height - input data
+         * @param {number} length - input data
+         * @param {number} thickness - input data
+         */
+
+        function getType(height, length, thickness) {
+            let sizeMeasure = length + (2 * height) + (2 * thickness); //define size 
+            let type;
+
+            // if matches regular post
+            if (length >= 3.5 && length <= 4.25 && height >= 3.5 && height <= 6 && thickness >= 0.007 && thickness <= 0.016) {
+                type = "regular post";
+            }
+            // else if matches large post
+            else if (length > 4.25 && length <= 6 && height >= 6 && height <= 11.5 && thickness >= 0.007 && thickness <= 0.015) {
+                type = "large post";
+            }
+            // else if matches envelope
+            else if (length >= 3.5 && length <= 6.125 && height >= 5 && height <= 11.5 && thickness >= 0.016 && thickness <= 0.25) {
+                type = "envelope";
+            }
+            // else if matches large envelope
+            else if (length >= 6.125 && length <= 24 && height >= 11 && height <= 18 && thickness >= 0.25 && thickness <= 0.5) {
+                type = "large envelope";
+            }
+            else {
+                // else it does not meet any of those restrictions, now package and large package evaluated 
+                // define the max values for large envelope using or 
+                const LargeEnvelopeMax = (length > 24) || (height > 18) || (thickness > 0.5);
+
+                //If size is greater than 84 and less than equal to 130: large package
+                if (sizeMeasure > 84 && sizeMeasure <= 130) {
+                    type = "large package";
+                }
+                else if (sizeMeasure <= 84 && LargeEnvelopeMax) {
+                    // Package: if size is less than equal to 84 and exceeds large envelope restrictions
+                    type = "package";
+                }
+                else {
+                    type = "unmailable"; //If matches no type then unmailable 
+                }
+            }
+            return type;
+
+        }
+
+        /**
+         * Function to get the distance between zip codes (how many zones crossed)
+         * @param {number} zipFrom - input data
+         * @param {number} zipTo - input data
+         */
+
+        function checkDistance(zipFrom, zipTo) {
+            // Zones (list of lists)
+            const zones = [
+                [1, 6999],
+                [7000, 19999],
+                [20000, 35999],
+                [36000, 62999],
+                [63000, 84999],
+                [85000, 99999],
+            ];
+
+            let startZone = null; //define variables nothing 
+            let endZone = null;
+            for (const [i, [start, end]] of zones.entries()) { //Loops through the zones, i gets the index of the ranges and the list gets the values of each zone 
+                if (start <= zipFrom && zipFrom <= end) { //if the first item in the list is less than or equal to the starting zip and the zip is less than or equal to the end item
+                    startZone = i;                        //i is saved start zone
+                }
+                if (start <= zipTo && zipTo <= end) {     //if the second item in the list is less than or equal to the ending zip and the zip is less than or equal to the end item
+                    endZone = i;                          //i is saved as end zone
+                }
+                // If both found stop
+                if (startZone !== null && endZone !== null) break;
+            }
+
+            if (startZone === null || endZone === null) { //if either all null
+                return NaN; //return not a number 
+            }
+            return Math.abs(endZone - startZone); //Returns the absolute values of the start zone - the end zone (the zones the mail will pass through)
+        }
+
+        /**
+         * Function to get final cost
+         * @param {number} type - post type
+         * @param {number} distance - zones crossed
+         */
+        function checkCost(type, distance) {
+            let cost = 0;
+            // compares type to string and adds set cost for type and the zone distance rate
+            if (type === "regular post") {
+                cost += 0.20;
+                cost += (distance * 0.03);
+            } else if (type === "large post") {
+                cost += 0.37;
+                cost += (distance * 0.03);
+            } else if (type === "envelope") {
+                cost += 0.37;
+                cost += (distance * 0.04);
+            } else if (type === "large envelope") {
+                cost += 0.60;
+                cost += (distance * 0.05);
+            } else if (type === "large package") {
+                cost += 3.95;
+                cost += (distance * 0.35);
+            } else if (type === "package") {
+                cost += 2.95;
+                cost += (distance * 0.25);
+            } else {
+                // If unmailable 
+                return type;
+            }
+            return cost; //Return calculated cost
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
